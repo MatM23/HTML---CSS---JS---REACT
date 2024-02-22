@@ -1,4 +1,5 @@
 
+import ColumnFooter from "./ColumnFooter";
 import "./Footer.module.css";
 
 function Footer() {
@@ -6,14 +7,7 @@ function Footer() {
     <footer>
       <div className="container">
         <div className="columns-container">
-          <div className="col">
-            <ul>
-              <li className="col-main-item"><a href="#">Ofertas de la semana</a></li>
-              <li><a href="#">Laptops</a></li>
-              <li><a href="#">Audio</a></li>
-              <li><a href="#">Auticulares</a></li>
-            </ul>
-          </div>
+          <ColumnFooter title={"Ofertas de la semana"} row1={"Laptops"} row2={"Audio"} row3={"Auriculares"}/>
           <div className="col">
             <ul>
               <li className="col-main-item"><a href="#">Cómo comprar</a></li>

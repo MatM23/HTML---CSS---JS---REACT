@@ -16,25 +16,6 @@ footer {
     gap: 20px;
   }
   
-  .columns-container .col ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  .columns-container .col ul li {
-    padding: 5px 0;
-  }
-  
-  .columns-container .col ul li.col-main-item {
-    font-weight: bold;
-    padding-bottom: 20px;
-  }
-  
-  .columns-container .col ul li a {
-    color: white;
-    text-decoration: none;
-  }
-  
   .copyright {
     border-top: 1px solid #ba53fb;
     text-align: center;
