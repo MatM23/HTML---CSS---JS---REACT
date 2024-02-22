@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+/* /src/views/Home.tsx */
+
+@import "./views/Home.module.css";
+@import "./components/NavBar.module.css";
+@import "./components/NavButton.module.css";
+
+body,
+html {
+  font-family: "Inter", sans-serif;
+  margin: 0;
+}
+
+
+/* Hero section */
+section#hero {
+  height: 340px;
+  background: url("/hero_bg.png");
+  background-size: cover;
+  background-position: top center;
+}
+section#hero .container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.title-container span {
+  display: block;
+  color: white;
+  font-weight: 700;
+}
+.title-container span:first-child {
+  font-size: 40px;
+}
+.title-container span:last-child {
+  font-size: 100px;
+  line-height: 80px;
+}
+
+main {
+  height: auto;
+  margin: 100px 0;
+}
+
+/* Footer  */
+footer {
+  min-height: 368px;
+  background-color: #7525a7;
+}
+
+footer .container {
+  display: flex;
+  flex-direction: column;
+}
+
+.columns-container {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.columns-container .col ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.columns-container .col ul li {
+  padding: 5px 0;
+}
+
+.columns-container .col ul li.col-main-item {
+  font-weight: bold;
+  padding-bottom: 20px;
+}
+
+.columns-container .col ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+.copyright {
+  border-top: 1px solid #ba53fb;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  padding: 30px 0;
+  box-sizing: border-box;
+}
+.container {
+  width: 1220px;
+  margin: 0 auto;
+  height: inherit;
+  min-height: inherit;
+}
