@@ -4,37 +4,12 @@
 @import "./views/Home.module.css";
 @import "./components/NavBar.module.css";
 @import "./components/NavButton.module.css";
+@import "./components/Hero.module.css";
 
 body,
 html {
   font-family: "Inter", sans-serif;
   margin: 0;
-}
-
-
-/* Hero section */
-section#hero {
-  height: 340px;
-  background: url("/hero_bg.png");
-  background-size: cover;
-  background-position: top center;
-}
-section#hero .container {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-}
-.title-container span {
-  display: block;
-  color: white;
-  font-weight: 700;
-}
-.title-container span:first-child {
-  font-size: 40px;
-}
-.title-container span:last-child {
-  font-size: 100px;
-  line-height: 80px;
 }
 
 main {

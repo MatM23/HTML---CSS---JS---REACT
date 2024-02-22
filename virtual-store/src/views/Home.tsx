@@ -1,18 +1,11 @@
 /* /src/views/Home.tsx */
 import NavBar from "../components/NavBar";
-import NavButton from "../components/NavButton";
+import Hero from "../components/Hero";
 
 function Home() {
     return <>
-    <NavBar />
-    <section id="hero">
-      <div className="container">
-        <div className="title-container">
-          <span>tecnología</span>
-          <span>renovada</span>
-        </div>
-      </div>
-    </section>
+    <NavBar/>
+    <Hero/>
     <main>
       <div className="container">
         <div className="product-container">
