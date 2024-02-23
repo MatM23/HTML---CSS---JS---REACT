@@ -9,6 +9,7 @@
 @import "./components/ColumnFooter.module.css";
 @import "./components/Product.module.css";
 @import "./components/Cart.module.css";
+@import "./views/NotFound.module.css";
 
 body,
 html {

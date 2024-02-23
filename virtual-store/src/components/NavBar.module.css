@@ -39,6 +39,11 @@ header {
   .search .social ul li {
     padding: 0 10px;
   }
+
+  .search .social ul li a img {
+    width: 26px;
+    height: 26px;
+  }
   
   .nav {
     padding: 10px 0;
