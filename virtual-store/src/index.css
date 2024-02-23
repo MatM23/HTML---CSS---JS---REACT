@@ -7,6 +7,8 @@
 @import "./components/Hero.module.css";
 @import "./components/Footer.module.css";
 @import "./components/ColumnFooter.module.css";
+@import "./components/Product.module.css";
+@import "./components/Cart.module.css";
 
 body,
 html {
