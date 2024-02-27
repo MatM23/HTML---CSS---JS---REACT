@@ -10,6 +10,7 @@
 @import "./components/Product.module.css";
 @import "./components/Cart.module.css";
 @import "./views/NotFound.module.css";
+@import "./components/ProductCard.module.css";
 
 body,
 html {

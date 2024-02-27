@@ -1,8 +1,304 @@
 import Footer from "../components/Footer";
+import Hero from "../components/Hero";
 import NavBar from "../components/NavBar";
 import "../components/Product.module.css";
+import { useParams } from "react-router-dom";
+
+const products = [
+  {
+    id: "P7Q8R9",
+    title: "iPad Pro 12.9",
+    description:
+      "The iPad Pro 12.9 is a stunning piece of technology, boasting a large 12.9-inch Retina display with ProMotion technology. With 256GB of storage, this iPad provides ample space for all your files, apps, and multimedia content. The sleek and slim design, combined with the silver color, gives it a sophisticated look. Enjoy seamless connectivity with the WiFi feature. Capture your memorable moments with the high-quality camera and relive them on the impressive screen. Whether you're a professional artist, student, or just someone who appreciates cutting-edge technology, the iPad Pro 12.9 is a versatile device that meets all your needs.",
+    price: 900000,
+    quantity: 1,
+    images: [
+      "https://i.postimg.cc/kX8PKZpq/ipad.jpg",
+      "https://i.postimg.cc/jqBrWKvM/ipad2.jpg",
+    ],
+    colors: ["Silver", "Space Gray", "Gold"],
+    onsale: false
+  },
+  {
+    id: "P7Q8R90",
+    title: "iPad Pro 13",
+    description:
+      "The iPad Pro 13 is a stunning piece of technology, boasting a large 12.9-inch Retina display with ProMotion technology. With 256GB of storage, this iPad provides ample space for all your files, apps, and multimedia content. The sleek and slim design, combined with the silver color, gives it a sophisticated look. Enjoy seamless connectivity with the WiFi feature. Capture your memorable moments with the high-quality camera and relive them on the impressive screen. Whether you're a professional artist, student, or just someone who appreciates cutting-edge technology, the iPad Pro 12.9 is a versatile device that meets all your needs.",
+    price: 800000,
+    quantity: 1,
+    images: [
+      "https://i.postimg.cc/jqBrWKvM/ipad2.jpg",
+      "https://i.postimg.cc/kX8PKZpq/ipad.jpg",
+    ],
+    colors: ["Silver", "Space Gray", "Gold"],
+    onsale: true
+  },
+  {
+    id: "S1T2U3",
+    title: "Sony WH-1000XM4",
+    description:
+      "Immerse yourself in the world of music with the Sony WH-1000XM4 wireless headphones. These over-ear headphones feature industry-leading noise cancellation technology, ensuring a premium listening experience in any environment. The sleek black color adds a touch of elegance. With multiple touch controls, you can easily manage your music playback and calls. The headphones are equipped with a powerful battery that provides hours of listening on a single charge. Whether you're commuting, traveling, or simply enjoying your favorite tunes at home, the Sony WH-1000XM4 delivers unparalleled sound quality and comfort.",
+    price: 250000,
+    quantity: 1,
+    images: [
+      "https://i.postimg.cc/pVsHPznM/sony1.jpg",
+      "https://i.postimg.cc/L58Fz6wW/sony1.webp",
+      "https://i.postimg.cc/7ht8XryZ/sony2.jpg",
+    ],
+    colors: ["Black", "Silver"],
+    onsale: false
+  },
+  {
+    id: "S1T2U30",
+    title: "Sony WH-1000",
+    description:
+      "Immerse yourself in the world of music with the Sony WH-1000XM4 wireless headphones. These over-ear headphones feature industry-leading noise cancellation technology, ensuring a premium listening experience in any environment. The sleek black color adds a touch of elegance. With multiple touch controls, you can easily manage your music playback and calls. The headphones are equipped with a powerful battery that provides hours of listening on a single charge. Whether you're commuting, traveling, or simply enjoying your favorite tunes at home, the Sony WH-1000XM4 delivers unparalleled sound quality and comfort.",
+    price: 200000,
+    quantity: 1,
+    images: [
+      "https://i.postimg.cc/L58Fz6wW/sony1.webp",
+      "https://i.postimg.cc/pVsHPznM/sony1.jpg",
+      "https://i.postimg.cc/7ht8XryZ/sony2.jpg",
+    ],
+    colors: ["Black", "Silver"],
+    onsale: true
+  },
+  {
+    id: "V4W5X6",
+    title: "GoPro HERO9 Black",
+    description:
+      "Capture your adventures in stunning detail with the GoPro HERO9 Black. This action camera boasts 5K video recording and is waterproof, making it perfect for all your outdoor activities. The sleek black design adds a touch of style to your gear. With multiple shooting modes and advanced features, the HERO9 Black is a versatile tool for both professionals and enthusiasts. Share your experiences with the world through high-quality footage and photos. Whether you're diving into the ocean, skiing down the slopes, or simply exploring your surroundings, the GoPro HERO9 Black is your reliable companion.",
+    price: 400000,
+    quantity: 1,
+    images: [
+      "https://i.postimg.cc/WbcbB2MB/gopro12.png",
+      "https://i.postimg.cc/8k6zXFrd/gopro2.png",
+    ],
+    colors: ["Black"],
+    onsale: false
+  },
+  {
+    id: "V4W5X60",
+    title: "GoPro HE9",
+    description:
+      "Capture your adventures in stunning detail with the GoPro HERO9 Black. This action camera boasts 5K video recording and is waterproof, making it perfect for all your outdoor activities. The sleek black design adds a touch of style to your gear. With multiple shooting modes and advanced features, the HERO9 Black is a versatile tool for both professionals and enthusiasts. Share your experiences with the world through high-quality footage and photos. Whether you're diving into the ocean, skiing down the slopes, or simply exploring your surroundings, the GoPro HERO9 Black is your reliable companion.",
+    price: 300000,
+    quantity: 1,
+    images: [
+      "https://i.postimg.cc/8k6zXFrd/gopro2.png",
+      "https://i.postimg.cc/WbcbB2MB/gopro12.png",
+    ],
+    colors: ["Black"],
+    onsale: true
+  },
+  {
+    id: "Y7Z8A9",
+    title: "Kindle Paperwhite",
+    description:
+      "Experience the joy of reading with the Kindle Paperwhite. This e-reader features a 6-inch high-resolution display with built-in lighting, providing a comfortable reading experience in any lighting conditions. With WiFi connectivity, you can easily access a vast library of books and other content. The sleek design and compact size make it perfect for on-the-go reading. Whether you're a bookworm or a casual reader, the Kindle Paperwhite offers a convenient and enjoyable way to indulge in your favorite literary adventures.",
+    price: 100000,
+    quantity: 2,
+    images: [
+      "https://i.postimg.cc/nzqG0FKH/kindle1.jpg",
+      "https://i.postimg.cc/2ymFtsTn/kindle2.jpg",
+    ],
+    colors: ["Black", "White"],
+    onsale: false
+  },
+  {
+    id: "Y7Z8A90",
+    title: "Kindle PW Mini",
+    description:
+      "Experience the joy of reading with the Kindle Paperwhite. This e-reader features a 5-inch high-resolution display with built-in lighting, providing a comfortable reading experience in any lighting conditions. With WiFi connectivity, you can easily access a vast library of books and other content. The sleek design and compact size make it perfect for on-the-go reading. Whether you're a bookworm or a casual reader, the Kindle Paperwhite offers a convenient and enjoyable way to indulge in your favorite literary adventures.",
+    price: 50000,
+    quantity: 2,
+    images: [
+      "https://i.postimg.cc/2ymFtsTn/kindle2.jpg",
+      "https://i.postimg.cc/nzqG0FKH/kindle1.jpg",
+    ],
+    colors: ["Black", "White"],
+    onsale: true
+  },
+  {
+    id: "B1C2D3",
+    title: "Bose SoundLink Revolve",
+    description:
+      "Elevate your audio experience with the Bose SoundLink Revolve Bluetooth speaker. Its sleek design and black color make it a stylish addition to any space. Enjoy 360-degree sound coverage, creating an immersive listening experience. With wireless connectivity, you can easily connect your devices and play your favorite music. The built-in rechargeable battery ensures hours of playback on a single charge. Whether you're hosting a party or enjoying a quiet evening at home, the Bose SoundLink Revolve delivers rich and clear audio that enhances every moment.",
+    price: 200000,
+    quantity: 1,
+    images: [
+      "https://i.postimg.cc/QM5P5rz3/bose1.jpg",
+      "https://i.postimg.cc/JnLF52wB/bose2.jpg",
+      "https://i.postimg.cc/wvQGfQH4/bose3.jpg",
+    ],
+    colors: ["Black", "Silver"],
+    onsale: false
+  },
+  {
+    id: "B1C2D30",
+    title: "Bose SoundLink Terminator",
+    description:
+      "Elevate your audio experience with the Bose SoundLink Revolve Bluetooth speaker. Its sleek design and black color make it a stylish addition to any space. Enjoy 360-degree sound coverage, creating an immersive listening experience. With wireless connectivity, you can easily connect your devices and play your favorite music. The built-in rechargeable battery ensures hours of playback on a single charge. Whether you're hosting a party or enjoying a quiet evening at home, the Bose SoundLink Revolve delivers rich and clear audio that enhances every moment.",
+    price: 100000,
+    quantity: 1,
+    images: [
+      "https://i.postimg.cc/wvQGfQH4/bose3.jpg",
+      "https://i.postimg.cc/QM5P5rz3/bose1.jpg",
+      "https://i.postimg.cc/JnLF52wB/bose2.jpg",
+    ],
+    colors: ["Black", "Silver"],
+    onsale: true
+  },
+  {
+    id: "A1B2C3",
+    title: "MacBook Pro 13'4",
+    description:
+      "Experience the power of creativity with the MacBook Pro 13'4. Featuring 8GB of RAM and 512GB of storage, this laptop provides the performance and storage capacity needed for demanding tasks. The sleek design in silver and space gray adds a touch of sophistication. The high-resolution Retina display brings your visuals to life, whether you're editing photos, creating videos, or simply browsing the web. With the latest technology and a lightweight build, the MacBook Pro 13'4 is the perfect companion for professionals and creative individuals alike.",
+    price: 750000,
+    quantity: 1,
+    images: [
+      "https://i.postimg.cc/HxGQcrcp/mock1.jpg",
+      "https://i.postimg.cc/Y91Q1tYQ/mock2.jpg",
+    ],
+    colors: ["Silver", "Space Gray"],
+    onsale: false
+  },
+  {
+    id: "A1B2C3",
+    title: "MacBook 12'",
+    description:
+      "Experience the power of creativity with the MacBook Pro 13'4. Featuring 8GB of RAM and 512GB of storage, this laptop provides the performance and storage capacity needed for demanding tasks. The sleek design in silver and space gray adds a touch of sophistication. The high-resolution Retina display brings your visuals to life, whether you're editing photos, creating videos, or simply browsing the web. With the latest technology and a lightweight build, the MacBook Pro 13'4 is the perfect companion for professionals and creative individuals alike.",
+    price: 500000,
+    quantity: 1,
+    images: [
+      "https://i.postimg.cc/Y91Q1tYQ/mock2.jpg",
+      "https://i.postimg.cc/HxGQcrcp/mock1.jpg",
+    ],
+    colors: ["Silver", "Space Gray"],
+    onsale: true
+  },
+  {
+    id: "D4E5F6",
+    title: "MacBook Pro 15'4",
+    description:
+      "Unleash your productivity with the MacBook Pro 15'4. Boasting 8GB of RAM and 512GB of storage, this laptop is a powerhouse for multitasking and content creation. The silver and space gray colors add a touch of elegance to its design. The large Retina display provides a stunning visual experience for all your tasks, from graphic design to video editing. Whether you're a professional on the go or a creative individual working on intensive projects, the MacBook Pro 15'4 delivers the performance you need.",
+    price: 800000,
+    quantity: 2,
+    images: [
+      "https://i.postimg.cc/L5W4515D/note.jpg",
+      "https://i.postimg.cc/HxGQcrcp/mock1.jpg",
+      "https://i.postimg.cc/Y91Q1tYQ/mock2.jpg",
+    ],
+    colors: ["Silver", "Space Gray"],
+    onsale: false
+  },
+  {
+    id: "D4E5F60",
+    title: "MacBook Pro 17'",
+    description:
+      "Unleash your productivity with the MacBook Pro 15'4. Boasting 8GB of RAM and 512GB of storage, this laptop is a powerhouse for multitasking and content creation. The silver and space gray colors add a touch of elegance to its design. The large Retina display provides a stunning visual experience for all your tasks, from graphic design to video editing. Whether you're a professional on the go or a creative individual working on intensive projects, the MacBook Pro 15'4 delivers the performance you need.",
+    price: 900000,
+    quantity: 2,
+    images: [
+      "https://i.postimg.cc/Y91Q1tYQ/mock2.jpg",
+      "https://i.postimg.cc/HxGQcrcp/mock1.jpg",
+    ],
+    colors: ["Silver", "Space Gray"],
+    onsale: true
+  },
+  {
+    id: "G7H8I9",
+    title: "Lenovo",
+    description:
+      "Enhance your computing experience with the Lenovo 13'4 laptop. Featuring 8GB of RAM and 256GB of storage, this laptop offers a perfect balance of performance and portability. The sleek design, combined with the black and silver colors, adds a touch of sophistication. The 13'4 display provides crisp visuals for work or entertainment. With the latest technology and a compact form factor, the Lenovo laptop is an ideal choice for professionals and students alike.",
+    price: 75000,
+    quantity: 1,
+    images: [
+      "https://i.postimg.cc/L5W4515D/note.jpg",
+      "https://i.postimg.cc/HxGQcrcp/mock1.jpg",
+      "https://i.postimg.cc/Y91Q1tYQ/mock2.jpg",
+    ],
+    colors: ["Black", "Silver"],
+    onsale: false
+  },
+  {
+    id: "G7H8I90",
+    title: "Lenovo",
+    description:
+      "Enhance your computing experience with the Lenovo 13'4 laptop. Featuring 8GB of RAM and 256GB of storage, this laptop offers a perfect balance of performance and portability. The sleek design, combined with the black and silver colors, adds a touch of sophistication. The 13'4 display provides crisp visuals for work or entertainment. With the latest technology and a compact form factor, the Lenovo laptop is an ideal choice for professionals and students alike.",
+    price: 45000,
+    quantity: 1,
+    images: [
+      "https://i.postimg.cc/HxGQcrcp/mock1.jpg",
+      "https://i.postimg.cc/Y91Q1tYQ/mock2.jpg",
+    ],
+    colors: ["Black", "Silver"],
+    onsale: true
+  },
+  {
+    id: "J1K2L3",
+    title: "Samsung Galaxy S21",
+    description:
+      "Unleash the power of innovation with the Samsung Galaxy S21 smartphone. With 128GB of storage and a sleek black color, this smartphone combines style with functionality. The advanced camera system captures stunning photos and videos, whether you're exploring nature or documenting everyday moments. The vibrant display and powerful processor provide a seamless and immersive user experience. Stay connected with high-speed connectivity and enjoy all the features and apps the Galaxy S21 has to offer. Elevate your mobile experience with this cutting-edge smartphone from Samsung.",
+    price: 500000,
+    quantity: 1,
+    images: [
+      "https://i.postimg.cc/Jn2C5W84/galaxy1.webp",
+      "https://i.postimg.cc/hvQWC348/galaxy2.jpg",
+      "https://i.postimg.cc/j55rfSGF/galaxy3.jpg",
+    ],
+    colors: ["Black", "Silver", "White"],
+    onsale: false
+  },
+  {
+    id: "J1K2L30",
+    title: "Samsung Galaxy S21 PRO",
+    description:
+      "Unleash the power of innovation with the Samsung Galaxy S21 smartphone. With 128GB of storage and a sleek black color, this smartphone combines style with functionality. The advanced camera system captures stunning photos and videos, whether you're exploring nature or documenting everyday moments. The vibrant display and powerful processor provide a seamless and immersive user experience. Stay connected with high-speed connectivity and enjoy all the features and apps the Galaxy S21 has to offer. Elevate your mobile experience with this cutting-edge smartphone from Samsung.",
+    price: 500000,
+    quantity: 1,
+    images: [
+      "https://i.postimg.cc/hvQWC348/galaxy2.jpg",
+      "https://i.postimg.cc/Jn2C5W84/galaxy1.webp",
+      "https://i.postimg.cc/j55rfSGF/galaxy3.jpg",
+    ],
+    colors: ["Black", "Silver", "White"],
+    onsale: false
+  },
+  {
+    id: "M4N5O6",
+    title: "Apple Watch Series 6",
+    description:
+      "Embrace a healthier lifestyle with the Apple Watch Series 6. With a 44mm display, GPS functionality, and a sleek space gray color, this smartwatch is the perfect companion for your fitness journey. Track your workouts, monitor your health, and stay connected on the go. The high-resolution Retina display provides clear visuals, whether you're checking notifications or tracking your fitness goals. With a variety of customizable watch faces and bands, the Apple Watch Series 6 lets you express your personal style while enjoying the latest in wearable technology.",
+    price: 300000,
+    quantity: 1,
+    images: [
+      "https://i.postimg.cc/VstzWdJx/watch.jpg",
+      "https://i.postimg.cc/3N278cM8/watch1.jpg",
+    ],
+    colors: ["Space Gray", "Silver", "Gold"],
+    onsale: false
+  },
+  {
+    id: "M4N5O60",
+    title: "Apple Watch Series 5",
+    description:
+      "Embrace a healthier lifestyle with the Apple Watch Series 6. With a 44mm display, GPS functionality, and a sleek space gray color, this smartwatch is the perfect companion for your fitness journey. Track your workouts, monitor your health, and stay connected on the go. The high-resolution Retina display provides clear visuals, whether you're checking notifications or tracking your fitness goals. With a variety of customizable watch faces and bands, the Apple Watch Series 6 lets you express your personal style while enjoying the latest in wearable technology.",
+    price: 100000,
+    quantity: 1,
+    images: [
+      "https://i.postimg.cc/3N278cM8/watch1.jpg",
+      "https://i.postimg.cc/VstzWdJx/watch.jpg",
+    ],
+    colors: ["Space Gray", "Silver", "Gold"],
+    onsale: false
+  },
+];
 
 function Product() {
+  const { id } = useParams();
+  const product = products.find((each) => each.id === id);
+  if (product) {
     return <>
     <NavBar/>
     <main>
@@ -10,28 +306,24 @@ function Product() {
         <div className="columns-container">
           <div>
             <div className="product-images-block">
+            {product.images.map(each => 
               <div className="thumbnail-container">
-                <img className="thumbnail" src="/mock1.jpg" alt="" />
-              </div>
-              <div className="thumbnail-container">
-                <img className="thumbnail" src="/mock2.jpg" alt="" />
-              </div>
+                <img className="thumbnail" src={each} alt="Imagen" />
+              </div> )}
             </div>
           </div>
           <div className="thumbnail-container">
-            <img id="selected-thumbnail" src="/mock1.jpg" alt="" />
+            <img id="selected-thumbnail" src={product.images[0]} alt="" />
           </div>
           <div className="product-description-block">
             <h1 className="title" id="title">
-              Apple iPhone XR,64 GB, Black - Fully Unlocked (Refurbished)
+              {product.title}
             </h1>
             <form className="selector">
               <fieldset>
                 <label className="label" htmlFor="color">Color</label>
                 <select>
-                  <option hidden>Seleccione un color</option>
-                  <option value="Rojo">Rojo</option>
-                  <option value="Azul">Azul</option>
+                {product.colors.map(each=><option value={each}>{each}</option>)}
                 </select>
               </fieldset>
               <fieldset>
@@ -46,35 +338,14 @@ function Product() {
             <div className="description">
               <span className="label">Descripción</span>
               <p id="description">
-                This phone is unlocked and compatible with any carrier of choice
-                on GSM and CDMA networks Tested for battery health and
-                guaranteed to have a minimum battery capacity of 80%.
-                Successfully passed a full diagnostic test which ensures
-                like-new functionality and removal of any prior-user personal
-                information. The device does not come with headphones or a SIM
-                card. It does include a generic (Mfi certified) charger and
-                charging cable. Inspected and guaranteed to have minimal
-                cosmetic damage, which is not noticeable when the device is held
-                at arm's length.
-              </p>
-              <p>
-                This phone is unlocked and compatible with any carrier of choice
-                on GSM and CDMA networks Tested for battery health and
-                guaranteed to have a minimum battery capacity of 80%.
-                Successfully passed a full diagnostic test which ensures
-                like-new functionality and removal of any prior-user personal
-                information. The device does not come with headphones or a SIM
-                card. It does include a generic (Mfi certified) charger and
-                charging cable. Inspected and guaranteed to have minimal
-                cosmetic damage, which is not noticeable when the device is held
-                at arm's length.
+                {product.description}
               </p>
             </div>
           </div>
           <div className="product-checkout-block">
             <div className="checkout-container">
               <span className="checkout-total-label">Total:</span>
-              <h2 className="checkout-total-price" id="price">$152.400</h2>
+              <h2 className="checkout-total-price" id="price">ARS$ {product.price}</h2>
               <p className="checkout-description">
                 Incluye impuesto PAIS y percepción AFIP. Podés recuperar AR$
                 50711 haciendo la solicitud en AFIP.
@@ -198,6 +469,30 @@ function Product() {
 
     <script src="product.js"></script>
     </>
+
+  
+    
+
+  } else {
+    return <>
+    <NavBar/>
+    <Hero/>
+    <main>
+        <div className="notFound">
+            <div className="info-container">
+                <div className="title">Error 404</div>
+                <p>Página no encontrada</p>
+            </div>
+            <div className="image-container">
+                <img src="/not-found.jpg" alt="Not found"></img>
+            </div>
+        </div>
+    </main>
+    <Footer/>
+    </>
+    
+  }
 }
+
 
 export default Product;

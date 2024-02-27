@@ -8,7 +8,6 @@ function NotFound() {
     <NavBar/>
     <Hero/>
     <main>
-        
         <div className="notFound">
             <div className="info-container">
                 <div className="title">Error 404</div>
@@ -17,11 +16,10 @@ function NotFound() {
             <div className="image-container">
                 <img src="./not-found.jpg" alt="Not found"></img>
             </div>
-            
         </div>
-      
     </main>
     <Footer/>
     </>
 }
+
 export default NotFound;
