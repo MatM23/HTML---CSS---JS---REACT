@@ -80,3 +80,12 @@
     height: 40px;
     border-radius: 10px;
   }
+
+  .btn-off {
+    width: 100%;
+    border: 1px solid #ff3b3c;
+    color: #e9730c;
+    font-weight: bold;
+    height: 40px;
+    border-radius: 10px;
+  }

@@ -164,7 +164,7 @@ const products = [
     onsale: false
   },
   {
-    id: "A1B2C3",
+    id: "A1B2C4",
     title: "MacBook 12'",
     description:
       "Experience the power of creativity with the MacBook Pro 13'4. Featuring 8GB of RAM and 512GB of storage, this laptop provides the performance and storage capacity needed for demanding tasks. The sleek design in silver and space gray adds a touch of sophistication. The high-resolution Retina display brings your visuals to life, whether you're editing photos, creating videos, or simply browsing the web. With the latest technology and a lightweight build, the MacBook Pro 13'4 is the perfect companion for professionals and creative individuals alike.",
@@ -304,6 +304,7 @@ function Home() {
         <div className="product-container">
         {products.map((each) => (
         <ProductCard
+          key={each.id.toString()}
           id={each.id}
           title={each.title}
           price={each.price}

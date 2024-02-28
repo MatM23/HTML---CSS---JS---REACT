@@ -3,6 +3,7 @@ import { useState } from "react";
 
 function ToAdd({product}) {
     const [quantity, setQuantity] = useState(1);
+    const [button, setButton] = useState(false);
     return <>
     <div className={styles["product-checkout-block"]}>
         <div className={styles["checkout-container"]}>
@@ -41,9 +42,8 @@ function ToAdd({product}) {
                 <button className={styles["btn-primary"]}>Comprar</button>
             </div>
             <div className={styles.bottom}>
-                <button className={styles["btn-outline"]} id="btn-add-to-cart">
-                Añadir al Carrito
-                </button>
+            <button className={button ? styles["btn-off"] : styles["btn-outline"]} id="btn-add-to-cart"
+                onClick={() => setButton(!button)}> {button ? "Quitar del" : "Añadir al"} Carrito </button>
             </div>
             </div>
         </div>
