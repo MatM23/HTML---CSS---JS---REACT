@@ -9,7 +9,7 @@ function ProductCard( {id, title, color, price, image }) {
               <span className="product-title">{title}</span>
               <span className="product-description">{color}</span>
               <div className="product-price-block">
-                <span className="price">ARS${price}</span>
+                <span className="price">ARS${(price).toLocaleString()}</span>
                 <span className="discount">50% Off</span>
               </div>
               <div className="product-tax-policy">Incluye impuesto País y percepción AFIP</div>

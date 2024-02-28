@@ -1,6 +1,7 @@
 import Footer from "../components/Footer";
 import NavBar from "../components/NavBar";
 import "../components/Cart.module.css";
+import "../components/ToAdd.module.css";
 
 function Cart() {
     return <>

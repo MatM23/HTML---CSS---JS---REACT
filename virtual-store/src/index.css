@@ -11,7 +11,9 @@
 @import "./components/Cart.module.css";
 @import "./views/NotFound.module.css";
 @import "./components/ProductCard.module.css";
-
+@import "./components/ToAdd.module.css";
+@import "./components/Description.module.css";
+@import "./components/Thumbs.module.css";
 body,
 html {
   font-family: "Inter", sans-serif;
@@ -21,6 +23,8 @@ html {
 main {
   height: auto;
   margin: 100px 0;
+  min-height: 300px;
+  
 }
 
 

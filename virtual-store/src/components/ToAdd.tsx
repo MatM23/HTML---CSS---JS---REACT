@@ -1,11 +1,16 @@
 import styles from "./ToAdd.module.css";
+import { useState } from "react";
 
 function ToAdd({product}) {
+    const [quantity, setQuantity] = useState(1);
     return <>
     <div className={styles["product-checkout-block"]}>
         <div className={styles["checkout-container"]}>
-            <span className={styles["checkout-total-label"]}>Total:</span>
-            <h2 className={styles["checkout-total-price"]} id="price">ARS$ {product.price}</h2>
+            <div>
+            <span className={styles["checkout-total-label"]}>Precio unitario: ARS$ {(product.price).toLocaleString()}</span>
+            </div>
+            <span className={styles["checkout-total-label"]}>Subtotal:</span>
+            <h2 className={styles["checkout-total-price"]} id="price">ARS$ {(product.price * quantity).toLocaleString()}</h2>
             <p className={styles["checkout-description"]}>
             Incluye impuesto PAIS y percepción AFIP. Podés recuperar AR$
             50711 haciendo la solicitud en AFIP.
@@ -32,7 +37,7 @@ function ToAdd({product}) {
             </ul>
             <div className={styles["checkout-process"]}>
             <div className={styles.top}>
-                <input id="input-quantity" type="number" value="1" min="1" />
+                <input id="input-quantity" type="number" min="1" defaultValue={quantity} onChange={(event) => setQuantity(Number(event?.target.value))} />
                 <button className={styles["btn-primary"]}>Comprar</button>
             </div>
             <div className={styles.bottom}>
