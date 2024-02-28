@@ -3,6 +3,9 @@ import Hero from "../components/Hero";
 import NavBar from "../components/NavBar";
 import "../components/Product.module.css";
 import { useParams } from "react-router-dom";
+import Thumbs from "../components/Thumbs";
+import Description from "../components/Description";
+import ToAdd from "../components/ToAdd";
 
 const products = [
   {
@@ -304,85 +307,9 @@ function Product() {
     <main>
       <div className="container">
         <div className="columns-container">
-          <div>
-            <div className="product-images-block">
-            {product.images.map(each => 
-              <div className="thumbnail-container">
-                <img className="thumbnail" src={each} alt="Imagen" />
-              </div> )}
-            </div>
-          </div>
-          <div className="thumbnail-container">
-            <img id="selected-thumbnail" src={product.images[0]} alt="" />
-          </div>
-          <div className="product-description-block">
-            <h1 className="title" id="title">
-              {product.title}
-            </h1>
-            <form className="selector">
-              <fieldset>
-                <label className="label" htmlFor="color">Color</label>
-                <select>
-                {product.colors.map(each=><option value={each}>{each}</option>)}
-                </select>
-              </fieldset>
-              <fieldset>
-                <label className="label" htmlFor="size">Tamaño</label>
-                <select>
-                  <option hidden>Seleccione un tamaño</option>
-                  <option value="a">Mediano</option>
-                  <option value="a">Grande</option>
-                </select>
-              </fieldset>
-            </form>
-            <div className="description">
-              <span className="label">Descripción</span>
-              <p id="description">
-                {product.description}
-              </p>
-            </div>
-          </div>
-          <div className="product-checkout-block">
-            <div className="checkout-container">
-              <span className="checkout-total-label">Total:</span>
-              <h2 className="checkout-total-price" id="price">ARS$ {product.price}</h2>
-              <p className="checkout-description">
-                Incluye impuesto PAIS y percepción AFIP. Podés recuperar AR$
-                50711 haciendo la solicitud en AFIP.
-              </p>
-              <ul className="checkout-policy-list">
-                <li>
-                  <span className="policy-icon"
-                    ><img src="/truck.png" alt="Truck"
-                  /></span>
-                  <span className="policy-desc"
-                    >Agrega el producto al carrito para conocer los costos de
-                    envío</span
-                  >
-                </li>
-                <li>
-                  <span className="policy-icon"
-                    ><img src="/plane.png" alt="Plane"
-                  /></span>
-                  <span className="policy-desc"
-                    >Recibí aproximadamente entre 10 y 15 días hábiles,
-                    seleccionando envío normal</span
-                  >
-                </li>
-              </ul>
-              <div className="checkout-process">
-                <div className="top">
-                  <input id="input-quantity" type="number" value="1" min="1" />
-                  <button className="btn-primary">Comprar</button>
-                </div>
-                <div className="bottom">
-                  <button className="btn-outline" id="btn-add-to-cart">
-                    Añadir al Carrito
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
+          <Thumbs product={product}/>
+          <Description product={product}/>
+          <ToAdd product={product}/>
         </div>
         <div className="sales-block">
           <div className="sales-title">

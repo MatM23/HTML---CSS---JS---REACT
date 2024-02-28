@@ -1,0 +1,28 @@
+.product-images-block {
+    /* Definimos flex 1 las 3 columnas para que ocupen el mismo espacio*/
+    flex: 1;
+  }
+  
+  .product-images-block .thumbnail-container {
+    /* Definimos flex 1 las 3 columnas para que ocupen el mismo espacio*/
+    max-width: 100%;
+    overflow: hidden;
+  }
+  
+  .product-images-block .thumbnail-container img {
+    /* Definimos flex 1 las 3 columnas para que ocupen el mismo espacio*/
+    max-width: 100%;
+    overflow: hidden;
+    object-position: center center;
+    object-fit: contain;
+    height: 50px;
+    cursor: pointer;
+  }
+  
+  #selected-thumbnail {
+    width: 350px;
+  }
+  
+  .product-images-block .thumbnail-container .active img {
+    height: 100%;
+  }

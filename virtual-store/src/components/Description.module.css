@@ -1,0 +1,47 @@
+.product-description-block {
+    /* Definimos flex 1 las 3 columnas para que ocupen el mismo espacio*/
+    flex: 1;
+  }
+  
+  .product-description-block .title {
+    color: black;
+    font-size: 28px;
+    font-weight: 700;
+    word-wrap: break-word;
+    margin-top: 0;
+  }
+  
+  .product-description-block .label {
+    color: black;
+    font-size: 12px;
+    font-weight: 700;
+  }
+  
+  .product-description-block .selector {
+    /* Ordenamos los labels y inputs verticalmente */
+    margin-top: 30px;
+  }
+  
+  .product-description-block .selector fieldset {
+    /* Ordenamos los labels y inputs verticalmente */
+    border: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .product-description-block .selector select {
+    width: 100%;
+    height: 40px;
+    background: white;
+    border-radius: 10px;
+    border: 1px #eaeaea solid;
+    margin: 10px 0;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+  
+  .product-description-block .description {
+    margin-top: 30px;
+    line-height: 20px;
+  }
