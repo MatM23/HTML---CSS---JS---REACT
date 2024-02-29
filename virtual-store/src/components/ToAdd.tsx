@@ -4,10 +4,9 @@ import { useState } from "react";
 function ToAdd({product}) {
     const [quantity, setQuantity] = useState(1);
     const [button, setButton] = useState(false);
-    
+
     function addToCart({description, title, price, images}) {
         const chosenQuantity = Number(quantity);
-        
         const product = {
             quantity: chosenQuantity,
             description,
@@ -17,8 +16,8 @@ function ToAdd({product}) {
         };
     
         const cart = JSON.parse(localStorage.getItem("cart") ?? "[]");
-    
-        const titles = cart.map((item) => item.title);
+        
+        const titles = cart.map((item) => item?.title);
         const isInCart = titles.includes(title);
     
         if (isInCart) {
@@ -38,6 +37,17 @@ function ToAdd({product}) {
             localStorage.setItem("cart", JSON.stringify([...cart, product]));
         }
     
+    }
+
+    function removeFromTheCart({title}) {
+        const cart = JSON.parse(localStorage.getItem("cart") ?? "[]");
+        cart.map((item, index) => {
+            if (item.title === title) {
+                cart.splice(index, 1);
+            }
+        });
+        localStorage.setItem("cart", JSON.stringify(cart));
+        
     }
 
     return <>
@@ -84,7 +94,7 @@ function ToAdd({product}) {
                     if (button === false) {
                         addToCart(product);
                     } else {
-                        console.log("Vaciando el carrito");
+                        removeFromTheCart(product);
                     }
                 }}> {button ? "Quitar del" : "Añadir al"} Carrito </button>
             </div>
