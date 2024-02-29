@@ -4,6 +4,42 @@ import { useState } from "react";
 function ToAdd({product}) {
     const [quantity, setQuantity] = useState(1);
     const [button, setButton] = useState(false);
+    
+    function addToCart({description, title, price, images}) {
+        const chosenQuantity = Number(quantity);
+        
+        const product = {
+            quantity: chosenQuantity,
+            description,
+            title,
+            price,
+            images,
+        };
+    
+        const cart = JSON.parse(localStorage.getItem("cart") ?? "[]");
+    
+        const titles = cart.map((item) => item.title);
+        const isInCart = titles.includes(title);
+    
+        if (isInCart) {
+        const newCart = cart.map((item) => {
+        if (item.title === title) {
+            return {
+            ...item,
+            quantity: item.quantity + quantity
+        };
+        } else {
+            return item;
+        }
+        });
+    
+        localStorage.setItem("cart", JSON.stringify(newCart));
+        } else {
+            localStorage.setItem("cart", JSON.stringify([...cart, product]));
+        }
+    
+    }
+
     return <>
     <div className={styles["product-checkout-block"]}>
         <div className={styles["checkout-container"]}>
@@ -43,7 +79,14 @@ function ToAdd({product}) {
             </div>
             <div className={styles.bottom}>
             <button className={button ? styles["btn-off"] : styles["btn-outline"]} id="btn-add-to-cart"
-                onClick={() => setButton(!button)}> {button ? "Quitar del" : "Añadir al"} Carrito </button>
+                onClick={() => {
+                    setButton(!button);
+                    if (button === false) {
+                        addToCart(product);
+                    } else {
+                        console.log("Vaciando el carrito");
+                    }
+                }}> {button ? "Quitar del" : "Añadir al"} Carrito </button>
             </div>
             </div>
         </div>

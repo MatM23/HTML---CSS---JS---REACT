@@ -10,7 +10,7 @@ function Description({product}) {
               <fieldset>
                 <label className={styles.label} htmlFor="color">Color</label>
                 <select>
-                {product.colors.map(each=><option value={each}>{each}</option>)}
+                {product.colors.map(each=><option key={each.toString()} value={each}>{each}</option>)}
                 </select>
               </fieldset>
               <fieldset>
