@@ -6,6 +6,7 @@ import { useParams } from "react-router-dom";
 import Thumbs from "../components/Thumbs";
 import Description from "../components/Description";
 import ToAdd from "../components/ToAdd";
+import Suggestions from "../components/Suggestions";
 
 const products = [
   {
@@ -311,85 +312,7 @@ function Product() {
           <Description product={product}/>
           <ToAdd product={product}/>
         </div>
-        <div className="sales-block">
-          <div className="sales-title">
-            <h2>Productos relacionados</h2>
-          </div>
-          <div className="product-container">
-            <article className="product-card">
-              <img
-                className="product-img"
-                src="/mock1.jpg"
-                alt="Macbook Pro"
-              />
-              <div className="product-info">
-                <span className="product-title">Macbook Pro 15'4</span>
-                <span className="product-description">Space Gray</span>
-                <div className="product-price-block">
-                  <span className="price">$750.000</span>
-                  <span className="discount">50% Off</span>
-                </div>
-                <div className="product-tax-policy">
-                  Incluye impuesto País y percepción AFIP
-                </div>
-              </div>
-            </article>
-            <article className="product-card">
-              <img
-                className="product-img"
-                src="/mock1.jpg"
-                alt="Macbook Pro"
-              />
-              <div className="product-info">
-                <span className="product-title">Macbook Pro 15'4</span>
-                <span className="product-description">Space Gray</span>
-                <div className="product-price-block">
-                  <span className="price">$750.000</span>
-                  <span className="discount">50% Off</span>
-                </div>
-                <div className="product-tax-policy">
-                  Incluye impuesto País y percepción AFIP
-                </div>
-              </div>
-            </article>
-            <article className="product-card">
-              <img
-                className="product-img"
-                src="/mock1.jpg"
-                alt="Macbook Pro"
-              />
-              <div className="product-info">
-                <span className="product-title">Macbook Pro 15'4</span>
-                <span className="product-description">Space Gray</span>
-                <div className="product-price-block">
-                  <span className="price">$750.000</span>
-                  <span className="discount">50% Off</span>
-                </div>
-                <div className="product-tax-policy">
-                  Incluye impuesto País y percepción AFIP
-                </div>
-              </div>
-            </article>
-            <article className="product-card">
-              <img
-                className="product-img"
-                src="/mock1.jpg"
-                alt="Macbook Pro"
-              />
-              <div className="product-info">
-                <span className="product-title">Macbook Pro 15'4</span>
-                <span className="product-description">Space Gray</span>
-                <div className="product-price-block">
-                  <span className="price">$750.000</span>
-                  <span className="discount">50% Off</span>
-                </div>
-                <div className="product-tax-policy">
-                  Incluye impuesto País y percepción AFIP
-                </div>
-              </div>
-            </article>
-          </div>
-        </div>
+        <Suggestions/>
       </div>
     </main>
     <Footer/>
