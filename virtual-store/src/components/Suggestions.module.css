@@ -2,6 +2,19 @@
 .sales-block {
     margin-top: 80px;
   }
+
+  .sales-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-grow: 0;
+  }
+
+  .sales-title img:hover {
+    border-radius: 10px;
+    background-color: #ebebeb;
+  }
   
   .sales-title h2 {
     text-align: center;
