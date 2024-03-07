@@ -23,7 +23,7 @@ function NavBar() {
         </div>
         <div className="nav">
           <ul>
-            <li> <NavButton title={"Ofertas de la semana"} href={"/ofertas.html"} img={{src: ""}} /> </li>
+            <li> <NavButton title={"Ofertas de la semana"} href={"/on-sale"} img={{src: ""}} /> </li>
             <li> <NavButton title={"¿Cómo comprar?"} href={"/como.html"} img={{src: ""}} /> </li>
             <li> <NavButton title={"Costos y tarifas"} href={"/costos_tarifas.html"} img={{src: ""}} /> </li>
             <li> <NavButton title={"Mis pedidos"} href={"/pedidos.html"} img={{src: ""}} /> </li>
