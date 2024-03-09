@@ -6,7 +6,7 @@ import styles from "./NotFound.module.css";
 function NotFound() {
     return <>
     <NavBar/>
-    <Hero/>
+    <Hero titulos={["Error"]}/>
     <main>
         <div className={styles.notFound}>
             <div className={styles["info-container"]}>

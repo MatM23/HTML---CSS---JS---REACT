@@ -24,11 +24,11 @@ function NavBar() {
         <div className={styles.nav}>
           <ul>
             <li> <NavButton title={"Ofertas de la semana"} href={"/on-sale"} img={{src: ""}} /> </li>
-            <li> <NavButton title={"¿Cómo comprar?"} href={"/como.html"} img={{src: ""}} /> </li>
-            <li> <NavButton title={"Costos y tarifas"} href={"/costos_tarifas.html"} img={{src: ""}} /> </li>
-            <li> <NavButton title={"Mis pedidos"} href={"/pedidos.html"} img={{src: ""}} /> </li>
-            <li> <NavButton title={"Invita y gana"} href={"/invita_gana.html"} img={{src: ""}} /> </li>
-            <li> <NavButton title={"Garantía de entrega"} href={"/garantia_entrega.html"} img={{src: ""}} /> </li>
+            <li> <NavButton title={"¿Cómo comprar?"} href={"/como"} img={{src: ""}} /> </li>
+            <li> <NavButton title={"Costos y tarifas"} href={"/costos-tarifas"} img={{src: ""}} /> </li>
+            <li> <NavButton title={"Mis pedidos"} href={"/pedidos"} img={{src: ""}} /> </li>
+            <li> <NavButton title={"Invita y gana"} href={"/invita-gana"} img={{src: ""}} /> </li>
+            <li> <NavButton title={"Garantía de entrega"} href={"/garantia-entrega"} img={{src: ""}} /> </li>
           </ul>
         </div>
       </div>
