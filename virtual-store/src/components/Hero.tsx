@@ -5,8 +5,8 @@ function Hero({titulos}) {
     <section id={styles.hero}>
       <div className={styles.container}>
         <div className={styles["title-container"]}>
-          {titulos.map((each) => 
-            <span>{each}</span>
+          {titulos.map((each, index) => 
+            <span key={index}>{each}</span>
           )}
         </div>
       </div>
