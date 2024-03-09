@@ -5,14 +5,15 @@ function ToAdd({product}) {
     const [quantity, setQuantity] = useState(1);
     const [button, setButton] = useState(false);
 
-    function addToCart({description, title, price, images}) {
+    function addToCart({description, title, price, images, onsale}) {
         const chosenQuantity = Number(quantity);
         const product = {
             quantity: chosenQuantity,
             description,
             title,
-            price,
+            price: (onsale) ? (price - (0.25 * price)) : price,
             images,
+            onsale
         };
     
         const cart = JSON.parse(localStorage.getItem("cart") ?? "[]");
