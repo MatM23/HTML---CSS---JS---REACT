@@ -1,0 +1,17 @@
+
+.container {
+    width: 1220px;
+    margin: 0 auto;
+    height: inherit;
+    min-height: inherit;
+  }
+  
+  /* Bloque de productos */
+  .product-container {
+    max-width: 100%;
+    width: inherit;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+    }

@@ -3,6 +3,7 @@ import NavBar from "../components/NavBar";
 import Hero from "../components/Hero";
 import Footer from "../components/Footer";
 import ProductCard from "../components/ProductCard";
+import styles from "./Home.module.css";
 
 const products = [
   {
@@ -298,10 +299,10 @@ const products = [
 function Home() {
     return <>
     <NavBar/>
-    <Hero/>
+    <Hero titulos={["tecnología", "renovada"]}/>
     <main>
-      <div className="container">
-        <div className="product-container">
+      <div className={styles.container}>
+        <div className={styles["product-container"]}>
         {products.map((each) => (
         <ProductCard
           key={each.id.toString()}

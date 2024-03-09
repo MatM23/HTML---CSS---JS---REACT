@@ -9,6 +9,10 @@ section#hero {
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    width: inherit;
+    margin: 0 25px;
+    height: inherit;
+    min-height: inherit;
   }
   .title-container span {
     display: block;

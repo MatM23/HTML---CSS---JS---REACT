@@ -1,19 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 /* /src/views/Home.tsx */
 
-@import "./views/Home.module.css";
-@import "./components/NavBar.module.css";
-@import "./components/NavButton.module.css";
-@import "./components/Hero.module.css";
-@import "./components/Footer.module.css";
-@import "./components/ColumnFooter.module.css";
-@import "./components/Product.module.css";
-@import "./components/Cart.module.css";
-@import "./views/NotFound.module.css";
-@import "./components/ProductCard.module.css";
-@import "./components/ToAdd.module.css";
-@import "./components/Description.module.css";
-@import "./components/Thumbs.module.css";
+
 body,
 html {
   font-family: "Inter", sans-serif;

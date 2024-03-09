@@ -1,7 +1,7 @@
 import Footer from "../components/Footer";
 import Hero from "../components/Hero";
 import NavBar from "../components/NavBar";
-import "../components/Product.module.css";
+import styles from "../components/Product.module.css";
 import { useParams } from "react-router-dom";
 import Thumbs from "../components/Thumbs";
 import Description from "../components/Description";
@@ -306,8 +306,8 @@ function Product() {
     return <>
     <NavBar/>
     <main>
-      <div className="container">
-        <div className="columns-container">
+      <div className={styles.container}>
+        <div className={styles["columns-container"]}>
           <Thumbs product={product}/>
           <Description product={product}/>
           <ToAdd product={product}/>
@@ -322,12 +322,12 @@ function Product() {
     <NavBar/>
     <Hero/>
     <main>
-        <div className="notFound">
-            <div className="info-container">
-                <div className="title">Error 404</div>
+        <div className={styles.notFound}>
+            <div className={styles["info-container"]}>
+                <div className={styles.title}>Error 404</div>
                 <p>Página no encontrada</p>
             </div>
-            <div className="image-container">
+            <div className={styles["image-container"]}>
                 <img src="/not-found.jpg" alt="Not found"></img>
             </div>
         </div>

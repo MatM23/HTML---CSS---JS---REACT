@@ -6,6 +6,10 @@ header {
   header .container {
     display: flex;
     flex-direction: column;
+    width: 1220px;
+    margin: 0 auto;
+    height: inherit;
+    min-height: inherit;
   }
   .search {
     flex: 1;
@@ -55,4 +59,3 @@ header {
     margin: 0;
     padding: 0;
   }
-  

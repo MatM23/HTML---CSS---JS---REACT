@@ -1,19 +1,19 @@
 /* /src/components/NavBar.tsx */
-import "./NavBar.module.css";
+import styles from "./NavBar.module.css";
 import NavButton from "./NavButton";
 
 function NavBar() {
     return <>
-    <header className="header">
-      <div className="container">
-        <div className="search">
-          <div className="logo">
+    <header className={styles.header}>
+      <div className={styles["container"]}>
+        <div className={styles.search}>
+          <div className={styles.logo}>
             <NavButton href={"/"} title={""} img={{src: "/tiendamia-logo.svg", width:"218", alt:"Logo store"}}/>
             </div>
-          <div className="form">
+          <div className={styles.form}>
             <form><input type="text" placeholder="Search"/></form>
           </div>
-          <div className="social">
+          <div className={styles.social}>
             <ul>
               <li><a href="https://facebook.com"><img src="/facebook.png" alt="Logo social"/></a></li>
               <li><a href="https://instagram.com"><img src="/instagram.png" alt="Logo social"/></a></li>
@@ -21,7 +21,7 @@ function NavBar() {
             </ul>
           </div>
         </div>
-        <div className="nav">
+        <div className={styles.nav}>
           <ul>
             <li> <NavButton title={"Ofertas de la semana"} href={"/on-sale"} img={{src: ""}} /> </li>
             <li> <NavButton title={"¿Cómo comprar?"} href={"/como.html"} img={{src: ""}} /> </li>

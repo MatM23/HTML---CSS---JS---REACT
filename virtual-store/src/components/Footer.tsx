@@ -1,42 +1,19 @@
 
 import ColumnFooter from "./ColumnFooter";
-import "./Footer.module.css";
+import styles from "./Footer.module.css";
 
 function Footer() {
     return <>
     <footer>
-      <div className="container">
-        <div className="columns-container">
+      <div className={styles.container}>
+        <div className={styles["columns-container"]}>
           <ColumnFooter title={"Ofertas de la semana"} row1={"Laptops"} row2={"Audio"} row3={"Auriculares"}/>
-          <div className="col">
-            <ul>
-              <li className="col-main-item"><a href="#">Cómo comprar</a></li>
-              <li><a href="#">Formas de pago</a></li>
-              <li><a href="#">Envios</a></li>
-              <li><a href="#">Devoluciones</a></li>
-            </ul>
-          </div>
-          <div className="col">
-            <ul>
-              <li className="col-main-item"><a href="#">Costos y tarifas</a></li>
-              <li><a href="#">Impuestos</a></li>
-              <li><a href="#">Facturación</a></li>
-            </ul>
-          </div>
-          <div className="col">
-            <ul>
-              <li className="col-main-item"><a href="#">Mis pedidos</a></li>
-              <li><a href="#">Pedir nuevamente</a></li>
-              <li><a href="#">Lista de deseos</a></li>
-            </ul>
-          </div>
-          <div className="col">
-            <ul>
-              <li className="col-main-item"><a href="#">Garantía de Entrega</a></li>
-            </ul>
-          </div>
+          <ColumnFooter title={"¿Cómo comprar?"} row1={"Formas de pago"} row2={"Envíos"} row3={"Devoluciones"}/>
+          <ColumnFooter title={"Costos y tarifas"} row1={"Impuestos"} row2={"Facturación"} row3={""}/>
+          <ColumnFooter title={"Mis pedidos"} row1={"Pedir nuevamente"} row2={"Lista de deseos"} row3={""}/>
+          <ColumnFooter title={"Garantía de entrega"} row1={""} row2={""} row3={""}/>
         </div>
-        <div className="copyright">
+        <div className={styles.copyright}>
           Curso de HTML + CSS 2023
         </div>
       </div>

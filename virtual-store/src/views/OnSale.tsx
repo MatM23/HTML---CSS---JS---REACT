@@ -1,7 +1,7 @@
 import NavBar from "../components/NavBar";
 import Hero from "../components/Hero";
 import Footer from "../components/Footer";
-import "./OnSale.module.css";
+import styles from "./OnSale.module.css";
 import OnSaleCard from "../components/OnSaleCard";
 
 const products = [
@@ -299,10 +299,10 @@ function OnSale() {
     const onSaleProducts = products.filter((each) => each.onsale);
     return <>
     <NavBar/>
-    <Hero/>
+    <Hero titulos={["Ofertas de la semana"]}/>
     <main>
-      <div className="container">
-        <div className="product-container">
+      <div className={styles.container}>
+        <div className={styles["product-container"]}>
         {onSaleProducts.map((each) => (
         <OnSaleCard
           key={each.id.toString()}

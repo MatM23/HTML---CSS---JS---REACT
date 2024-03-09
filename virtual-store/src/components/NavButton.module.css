@@ -1,9 +1,9 @@
-.nav ul li a {
-    color: white;
-    font-weight: 700;
-    text-align: left;
-    text-decoration: none;
-  }
-  .nav ul li a:hover {
-    text-decoration: underline;
-  }
+.button {
+  color: white;
+  font-weight: 700;
+  text-align: left;
+  text-decoration: none;
+}
+.button:hover {
+  text-decoration: underline;
+}

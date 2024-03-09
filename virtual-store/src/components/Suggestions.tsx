@@ -329,7 +329,8 @@ function Suggestions() {
                 image={each.images[0]}
                 title={each.title}
                 color={each.colors[0]}
-                price={each.price}/>
+                price={each.price}
+                onSale={each.onsale}/>
            ))}
           </div>
         </div>

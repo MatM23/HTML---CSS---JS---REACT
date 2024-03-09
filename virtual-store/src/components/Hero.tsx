@@ -1,13 +1,13 @@
+import styles from "./Hero.module.css";
 
-import "./Hero.module.css";
-
-function Hero() {
+function Hero({titulos}) {
     return <>
-    <section id="hero">
-      <div className="container">
-        <div className="title-container">
-          <span>tecnología</span>
-          <span>renovada</span>
+    <section id={styles.hero}>
+      <div className={styles.container}>
+        <div className={styles["title-container"]}>
+          {titulos.map((each) => 
+            <span>{each}</span>
+          )}
         </div>
       </div>
     </section>

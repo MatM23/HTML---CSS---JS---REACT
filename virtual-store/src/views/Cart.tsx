@@ -1,33 +1,28 @@
 import Footer from "../components/Footer";
 import NavBar from "../components/NavBar";
-import "../components/Cart.module.css";
-import "../components/ToAdd.module.css";
+import styles from "../components/Cart.module.css";
+
+import Hero from "../components/Hero";
 
 function Cart() {
     return <>
     <NavBar/>
-    <section id="hero">
-      <div className="container">
-        <div className="title-container">
-          <span>Mi carrito</span>
-        </div>
-      </div>
-    </section>
+    <Hero titulos={["Mi carrito"]}/>
     <main>
-      <button className="btn-primary discount" id="btn-discount">
+      <button className={[styles["btn-primary"], styles.discount].join(" ")} id="btn-discount">
         Aplicar 10%
       </button>
-      <div className="cart-container">
-        <div className="card resume">
+      <div className={styles["cart-container"]}>
+        <div className={[styles.card, styles.resume].join(" ")}>
           <div>
             <h2>Resumen del pedido</h2>
-            <div className="subtotal">
+            <div className={styles.subtotal}>
               <h3>Subtotal</h3>
-              <strong className="price"></strong>
+              <strong className={styles.price}></strong>
             </div>
             <small>Incluye impuesto PAIS y percepción AFIP.</small>
           </div>
-          <button className="btn-primary">Finaliza tu compra</button>
+          <button className={styles["btn-primary"]}>Finaliza tu compra</button>
         </div>
       </div>
     </main>

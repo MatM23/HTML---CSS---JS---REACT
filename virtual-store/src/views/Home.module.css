@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 
+.container {
+  width: 1220px;
+  margin: 0 auto;
+  height: inherit;
+  min-height: inherit;
+}
+
 /* Bloque de productos */
 .product-container {
   max-width: 100%;
