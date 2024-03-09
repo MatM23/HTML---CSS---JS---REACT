@@ -47,17 +47,26 @@ function ToAdd({product}) {
             }
         });
         localStorage.setItem("cart", JSON.stringify(cart));
-        
     }
 
+    function calculatePrice(price, discount, onSale) {
+        let newPrice : number;
+        if(onSale) {
+          newPrice = price - price * (discount/100);
+        } else {
+            newPrice = price;
+          }
+        return newPrice;
+      }
+    const discountPrice = calculatePrice(product.price, 25, product.onsale);
     return <>
     <div className={styles["product-checkout-block"]}>
         <div className={styles["checkout-container"]}>
             <div>
-            <span className={styles["checkout-total-label"]}>Precio unitario: ARS$ {(product.price).toLocaleString()}</span>
+            <span className={styles["checkout-total-label"]}>Precio {(product.onsale) ? "con descuento:" : "unitario:"} ARS$ {discountPrice.toLocaleString()}</span>
             </div>
             <span className={styles["checkout-total-label"]}>Subtotal:</span>
-            <h2 className={styles["checkout-total-price"]} id="price">ARS$ {(product.price * quantity).toLocaleString()}</h2>
+            <h2 className={styles["checkout-total-price"]} id="price">ARS$ {(discountPrice * quantity).toLocaleString()}</h2>
             <p className={styles["checkout-description"]}>
             Incluye impuesto PAIS y percepción AFIP. Podés recuperar AR$
             50711 haciendo la solicitud en AFIP.
